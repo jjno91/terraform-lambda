@@ -1,4 +1,9 @@
 variable "name" {
-  default = "terraform"
   type    = string
+  default = "terraform"
+}
+
+variable "schedule_expression" {
+  type    = string
+  default = null
 }

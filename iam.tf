@@ -1,7 +1,10 @@
 resource "aws_iam_role" "this" {
-  count              = 1
-  name_prefix        = "lambda-${var.name}-"
-  assume_role_policy = data.aws_iam_policy_document.this[0].json
+  count                 = 1
+  name_prefix           = "lambda-${var.name}-"
+  assume_role_policy    = data.aws_iam_policy_document.this[0].json
+  force_detach_policies = true
+  managed_policy_arns   = ["arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"]
+  inline_policy {}
 
   lifecycle {
     create_before_destroy = true
