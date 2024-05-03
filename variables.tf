@@ -4,6 +4,7 @@ variable "name" {
 }
 
 variable "schedule_expression" {
-  type    = string
-  default = null
+  type        = string
+  default     = null
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_rule#schedule_expression"
 }
