@@ -5,7 +5,7 @@ jobs:
   Format:
     runs-on: ubuntu-latest
     steps:
-      - run: terraform fmt -check
+      - run: terraform fmt -check -diff
   Validate:
     runs-on: ubuntu-latest
     steps:
@@ -14,4 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: terraform-linters/setup-tflint@v4
-      - run: tflint
+      - run: tflint -f compact
