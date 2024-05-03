@@ -9,7 +9,7 @@ resource "aws_lambda_function" "this" {
 }
 
 data "archive_file" "this" {
-  count = 1
+  count       = 1
   type        = "zip"
   source_file = "test.js"
   output_path = "this.zip"
