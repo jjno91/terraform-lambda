@@ -5,14 +5,17 @@ jobs:
   Format:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: terraform fmt -check -diff
   Validate:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: terraform validate
   Lint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: terraform-linters/setup-tflint@v4
       - run: tflint -f compact
       - run: ls
