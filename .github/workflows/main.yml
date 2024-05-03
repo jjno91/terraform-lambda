@@ -1,0 +1,16 @@
+name: Main
+on: push
+
+jobs:
+  Format:
+    runs-on: ubuntu-latest
+    steps:
+      - run: terraform fmt -check
+  Validate:
+    runs-on: ubuntu-latest
+    steps:
+      - run: terraform validate
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: tflint
