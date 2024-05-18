@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: aws-actions/configure-aws-credentials@v4 # backend fails without login
+      - uses: aws-actions/configure-aws-credentials@v4 # backend validate fails without login
         with:
           role-to-assume: ${{ secrets.ROLE }}
           aws-region: us-east-1
@@ -38,5 +38,5 @@ jobs:
       - run: terraform plan -out=.tfplan
       - run: terraform apply -auto-approve .tfplan
       - run: terraform plan -detailed-exitcode -refresh=false
-      - run: terraform destroy -auto-approve -refresh=false
-        if: always()
+      #- run: terraform destroy -auto-approve -refresh=false
+      #  if: always()
