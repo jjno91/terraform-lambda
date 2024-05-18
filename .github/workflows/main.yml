@@ -40,3 +40,12 @@ jobs:
       - run: terraform plan -detailed-exitcode -refresh=false
       #- run: terraform destroy -auto-approve -refresh=false
       #  if: always()
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.ROLE }}
+          aws-region: us-east-1
+      - uses: aws-actions/amazon-ecr-login@v2
