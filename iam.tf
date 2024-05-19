@@ -5,7 +5,7 @@ resource "aws_iam_role" "this" {
   force_detach_policies = true
   inline_policy {}
 
-  managed_policy_arns   = [
+  managed_policy_arns = [
     "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
     "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
   ]
