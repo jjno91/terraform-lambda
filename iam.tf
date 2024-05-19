@@ -3,8 +3,12 @@ resource "aws_iam_role" "this" {
   name_prefix           = "${var.name}-lambda-"
   assume_role_policy    = data.aws_iam_policy_document.this[0].json
   force_detach_policies = true
-  managed_policy_arns   = ["arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"]
   inline_policy {}
+
+  managed_policy_arns   = [
+    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+    "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+  ]
 
   lifecycle {
     create_before_destroy = true
