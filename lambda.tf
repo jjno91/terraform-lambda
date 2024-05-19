@@ -5,6 +5,7 @@ resource "aws_lambda_function" "this" {
   role          = aws_iam_role.this[0].arn
   package_type  = "Image"
   image_uri     = var.image
+  memory_size   = 1024
 
   image_config {
     command = [var.command]
