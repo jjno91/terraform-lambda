@@ -10,15 +10,3 @@ resource "aws_lambda_function" "this" {
     command = [var.command]
   }
 }
-
-resource "aws_lambda_function" "test" {
-  count         = 1
-  function_name = "test2"
-  role          = aws_iam_role.this[0].arn
-  package_type  = "Image"
-  image_uri     = var.image
-
-  image_config {
-    command = ["test.handler"]
-  }
-}
