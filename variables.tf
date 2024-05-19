@@ -12,3 +12,8 @@ variable "schedule_expression" {
 variable "image" {
   type = string
 }
+
+variable "command" {
+  type    = string
+  default = "main.handler"
+}
