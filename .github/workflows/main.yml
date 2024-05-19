@@ -5,7 +5,7 @@ permissions:
   id-token: write # needed for aws-actions/configure-aws-credentials
 
 env:
-  TF_VAR_image: 107018555615.dkr.ecr.us-east-2.amazonaws.com/terraform-lambda-${{ github.sha }}
+  TF_VAR_image: 107018555615.dkr.ecr.us-east-2.amazonaws.com/terraform-lambda:${{ github.sha }}
 
 jobs:
   Format:
