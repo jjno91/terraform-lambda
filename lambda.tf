@@ -11,7 +11,7 @@ resource "aws_lambda_function" "this" {
   }
 
   dynamic "vpc_config" {
-    for_each = length(data.aws_vpcs.this.ids) == 1 ? [1] : []
+    for_each = length(data.aws_vpcs.this[0].ids) == 1 ? [1] : []
 
     content {
       security_group_ids = [aws_security_group.this[0].id]
