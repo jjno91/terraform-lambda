@@ -7,11 +7,11 @@ data "aws_vpcs" "this" {
 }
 
 data "aws_subnets" "this" {
-  count = length(data.aws_vpcs.this.ids) == 1 ? 1 : 0
+  count = length(data.aws_vpcs.this[0].ids) == 1 ? 1 : 0
 
   filter {
     name   = "vpc-id"
-    values = [data.aws_vpcs.this.ids[0]]
+    values = [data.aws_vpcs.this[0].ids[0]]
   }
 
   tags = {

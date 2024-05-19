@@ -1,9 +1,8 @@
 resource "aws_security_group" "this" {
-  count       = length(data.aws_vpcs.this.ids) == 1 ? 1 : 0
+  count       = length(data.aws_vpcs.this[0].ids) == 1 ? 1 : 0
   name_prefix = "${var.name}-"
   vpc_id      = data.aws_vpcs.this[0].ids[0]
-
-  ingress {}
+  ingress     = []
 
   egress {
     from_port        = 0
