@@ -18,4 +18,8 @@ resource "aws_lambda_function" "this" {
       subnet_ids         = data.aws_subnets.this[0].ids
     }
   }
+
+  environment {
+    variables = var.variables
+  }
 }

@@ -17,3 +17,8 @@ variable "command" {
   type    = string
   default = "main.handler"
 }
+
+variable "variables" {
+  type    = map(string)
+  default = null
+}
