@@ -10,10 +10,3 @@ resource "aws_lambda_function" "this" {
     command = [var.command]
   }
 }
-
-data "archive_file" "this" {
-  count       = 1
-  type        = "zip"
-  source_file = "test.js"
-  output_path = "this.zip"
-}
