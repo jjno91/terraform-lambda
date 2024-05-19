@@ -11,7 +11,7 @@ resource "aws_lambda_function" "this" {
   }
 }
 
-resource "aws_lambda_function" "this" {
+resource "aws_lambda_function" "test" {
   count         = 1
   function_name = "test2"
   role          = aws_iam_role.this[0].arn
