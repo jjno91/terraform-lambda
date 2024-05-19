@@ -62,7 +62,7 @@ jobs:
           --image-scanning-configuration scanOnPush=true
           --encryption-configuration encryptionType=AES256
           &&
-          awc ecr set-repository-policy
+          aws ecr set-repository-policy
           --repository-name ${{ github.event.repository.name }}
           --policy-text
           {
