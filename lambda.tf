@@ -9,4 +9,13 @@ resource "aws_lambda_function" "this" {
   image_config {
     command = [var.command]
   }
+
+  dynamic "vpc_config" {
+    for_each = length(data.aws_vpcs.this.ids) == 1 ? [1] : []
+
+    content {
+      security_group_ids = [aws_security_group.this[0].id]
+      subnet_ids         = data.aws_subnets.this[0].ids
+    }
+  }
 }
