@@ -64,11 +64,15 @@ jobs:
           &&
           aws ecr set-repository-policy
           --repository-name ${{ github.event.repository.name }}
-          --policy-text
+          --policy-text 
           '{
+          "Version": "2012-10-17",
+          "Statement":
+          [{
           "Effect": "Allow",
           "Principal": {"Service": "lambda.amazonaws.com"},
           "Action": ["ecr:BatchGetImage" , "ecr:GetDownloadUrlForLayer"]
+          }]
           }'
           &&
           docker push ${TF_VAR_image}
